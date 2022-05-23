@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+
+<body>
+    <div class="back">
+        <a href="#"></a>
+        <div class="dialog_wrap">
+            <h3>欢迎回来！请登录</h3>
+            <div class="phone">
+                <input type="text" placeholder="手机号码">
+            </div>
+            <div class="code">
+                <input type="text" placeholder="验证码">
+                <img src="./image/kaptcha.jpg" alt="">
+            </div>
+            <div class="password">
+                <input type="text" placeholder="密码">
+            </div>
+            <div class="confirm">
+                <input type="text" placeholder="确认密码">
+            </div>
+            <div class="check">
+                <input type="text" placeholder="填写手机验证码">
+                <button>获取手机验证码</button>
+            </div>
+            <div class="error">
+                <span class="error_1">手机号码格式不正确</span>
+                <span class="error_2">请填写正确的验证码</span>
+                <span class="error_3">密码8~16位，同时包含字母和数字</span>
+                <span class="error_4">两次密码输入不一致</span>
+                <span class="error_5">请输入正确的验证码</span>
+            </div>
+            <button class="register">注册</button>
+            <div class="return">
+                <a href="./index.html">返回登录</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var register = document.querySelector('.register')
+        var dialog = document.querySelector('.dialog_wrap')
+        register.onclick = function (e) {
+            e.preventDefault()
+            var phoneNumber = document.querySelector('.phone input').value
+            var code = document.querySelector('.code input').value
+            var password = document.querySelector('.password input').value
+            var confirm = document.querySelector('.confirm input').value
+            var verify = document.querySelector('.check input').value
+            var error_1 = document.querySelector('.error_1')
+            var error_2 = document.querySelector('.error_2')
+            var totalError = document.querySelectorAll('.error span')
+            //手机号正则
+            var phoneReg = /^1(4[^23]|5[^4]|6[^14]|9[^4])\d{8}$/
+            //密码正则
+            var passwordReg = /^(?!\d+$)(?![a-zA-Z]+$)[\da-zA-Z]{8,16}$/
+            if (phoneReg.test(phoneNumber) && code === '0592' && passwordReg.test(password) && confirm === password && verify === '1234') {
+                alert('验证通过！')
+                for (var i = 0; i < totalError.length; i++) {
+                    totalError[i].style.display = 'none'
+                }
+            } else if (!phoneReg.test(phoneNumber)) {
+                for (var i = 0; i < totalError.length; i++) {
+                    totalError[i].style.display = 'block'
+                }
+            } else if (code !== '0592') {
+                for (var i = 0; i < totalError.length; i++) {
+                    totalError[i].style.display = 'none'
+                }
+                totalError[1].style.display = 'block'
+            } else if (!passwordReg.test(password)) {
+                for (var i = 0; i < totalError.length; i++) {
+                    totalError[i].style.display = 'none'
+                }
+                totalError[2].style.display = 'block'
+            } else if (confirm !== password) {
+                for (var i = 0; i < totalError.length; i++) {
+                    totalError[i].style.display = 'none'
+                }
+                totalError[3].style.display = 'block'
+            } else if (verify !== '1234') {
+                for (var i = 0; i < totalError.length; i++) {
+                    totalError[i].style.display = 'none'
+                }
+                totalError[4].style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

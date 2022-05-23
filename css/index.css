@@ -1,0 +1,491 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.trend_header {
+    background-color: #000;
+}
+
+.trend_header h2 {
+    position: relative;
+    height: 72px;
+    margin-top: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../image/logo_tre_white_2020.png);
+}
+
+.trend_header .inner .container {
+    position: relative;
+}
+
+.trend_header .top-link {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-align: right;
+}
+
+.trend_header .top-link ul>li {
+    float: left;
+    margin-left: 10px;
+}
+
+.trend_header .top-link ul>li a {
+    color: #a0a0a0;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+.trend_header .top-link ul>li i {
+    color: #c9a063;
+    font-size: 12px;
+    margin-right: 3px;
+}
+
+.trend_header .top-link .search {
+    background: none;
+    border: none;
+}
+
+.trend_header .top-link .search_input {
+    vertical-align: text-bottom;
+    background: none;
+    border-bottom: 1px solid #555;
+    color: #a0a0a0;
+    width: 178px;
+    padding: 2px 4px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.trend_header .top-link .search i {
+    font-size: 30px;
+    color: #a0a0a0;
+}
+
+.trend_header .nav-top .container>ul>li {
+    float: left;
+    margin-right: 30px;
+    line-height: 40px;
+}
+
+.trend_header .nav-top .container>ul .last {
+    float: right;
+    margin-right: 0;
+    color: #fff;
+}
+
+.trend_header .nav-top .container>ul {
+    margin-bottom: 0;
+}
+
+.trend_header .nav-top .container>ul>li a {
+    color: #fff;
+}
+
+.nav_turn {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    padding: 15px 0;
+}
+
+.trend_header {
+    position: relative;
+}
+
+.trend_header .nav-top .container>ul>li .drop {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding-bottom: 30px;
+    background-color: #000;
+    transition: all .3s linear;
+}
+
+.drop_turn {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.trend_header .nav-top .container>ul>li .drop ul {
+    width: 500px;
+}
+
+.trend_header .nav-top .container>ul>li .drop ul li {
+    float: left;
+    width: 120px;
+    margin-right: 100px;
+}
+
+.trend_header .nav-top .container>ul>li:nth-child(5) .drop ul li,
+.trend_header .nav-top .container>ul>li:nth-child(6) .drop ul li {
+    float: none;
+    margin-right: 0;
+}
+
+.trend_header .nav-top .container>ul>li:nth-child(8) .drop ul {
+    width: 700px;
+}
+
+.trend_header .nav-top .container>ul>li .drop ul li a {
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    width: 100%;
+    font-size: 12px;
+}
+
+.trend_header .nav-top .container>ul>li .drop ul li a:hover {
+    background-color: #333;
+}
+
+.trend_header .nav-top .container>ul>li .drop .drop-inner {
+    width: 1170px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.trend_header .nav-top .container>ul>li .drop h4 {
+    font-size: 24px;
+    color: #a0a0a0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #666;
+}
+
+.trend_header a:hover {
+    color: #c9a063 !important;
+}
+
+.main_wrap .main_pic {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.main_wrap img {
+    width: 100%;
+}
+
+.main_wrap .link_box>div a,
+.brand_act .row>div a {
+    display: block;
+    position: relative;
+}
+
+.main_wrap .link_box>div span,
+.brand_act .row>div span {
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0 14px;
+    line-height: 2;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: 1px 1px 2px #666;
+    transition: all .5s linear;
+}
+
+.main_wrap .link_box>div:hover span,
+.brand_act .row>div:hover span {
+    background-color: rgba(0, 0, 0, 0.6)
+}
+
+.main_wrap .more {
+    color: #a0a0a0;
+    margin-top: 10px;
+    float: right;
+}
+
+.brand_act {
+    margin-top: 60px;
+}
+
+.brand_act h3,
+.news h3 {
+    font-size: 22px;
+    color: #717171;
+}
+
+.brand_act h3 span,
+.news h3 span {
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.brand_act img {
+    width: 100%;
+}
+
+.brand_act .row>div,
+.news .row>div {
+    margin-top: 20px;
+}
+
+.brand_act .row>div>a {
+    display: block;
+}
+
+.main_wrap .news {
+    margin-top: 60px;
+}
+
+.foot_parts {
+    margin-top: 60px;
+    padding: 20px 0;
+    background-image: url(../image/footer_bg_tre.png);
+    border-top: 4px solid #c1a75f;
+}
+
+.foot_parts .container>div {
+    float: left;
+    margin-right: 70px;
+    padding-right: 70px;
+    padding-bottom: 10em;
+    margin-bottom: -10em;
+    border-right: 1px solid #d8d8d8;
+}
+.foot_parts .container {
+    overflow: hidden;
+}
+.foot_parts .part1 .month {
+    width: 54px;
+    height: 54px;
+    font-size: 29px;
+    padding: 3px 0;
+    line-height: 20px;
+    text-align: center;
+    background-color: #fff;
+}
+.foot_parts .part1 .month span {
+    display: block;
+    font-size: 14px;
+}
+.foot_parts .part2>a {
+    display: block;
+    background: url(../image/icon_tre.png) -301px -801px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+.foot_parts .part4 {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    border: none !important;
+}
+.foot_parts .part4 a {
+    font-size: 12px;
+}
+.foot_parts .part4 .serve {
+    margin-top: 30px;
+    color: #666;
+}
+.foot_parts .part4 .serve a {
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: url(../image/icon_tre.png) 0 -196px;
+    padding-left: 30px;
+}
+.foot_parts .part4 .serve p:nth-child(2) {
+    background: url(../image/icon_tre.png) -300px -200px;
+    padding-left: 30px;
+    height: 24px;
+    line-height: 24px;
+}
+.foot_parts .part4 .serve p:nth-child(3) {
+    background: url(../image/icon_tre.png) -597px -198px;
+    padding-left: 30px;
+    height: 24px;
+    line-height: 24px;
+}
+.foot_parts .part4 .pay {
+    display: inline-block;
+    width: 56px;
+    height: 58px;
+    background: url(../image/icon_tre.png) -600px -300px;
+}
+.foot_parts .part4 .pay2 {
+    display: inline-block;
+    width: 56px;
+    height: 58px;
+    background: url(../image/icon_tre.png) -1px -400px;
+}
+.foot_parts img {
+    width: auto;
+}
+.foot_parts h5 {
+    color: #a0a0a0;
+}
+.foot_parts a {
+    color: #666;
+}
+.foot_parts a:hover {
+    color: #333;
+}
+.foot_copyright {
+    background-color: #000;
+    padding: 20px 0;
+}
+.foot_copyright .inner {
+    width: max-content;
+    margin: 0 auto;
+    padding-left: 400px;
+    background: url(../image/logo_tre_white_2020.png) no-repeat left;
+}
+.foot_copyright .inner p:first-child a {
+    color: #ddd;
+}
+.foot_copyright .inner p:last-child a {
+    color: #666;
+}
+.foot_copyright .inner p:last-child a:last-child {
+    background: url(../image/20161031164826771.png) no-repeat left;
+    padding-left: 23px;
+    margin-left: 13px;
+}
+.foot_copyright .inner a {
+    font-size: 12px;
+    line-height: 23px;
+}
+.foot_copyright .inner p {
+    color: #777;
+    font-size: 12px;
+    line-height: 23px;
+}
+.foot_copyright .inner>span {
+    color: #777;
+    font-size: 12px;
+}
+.topFix {
+    position: fixed;
+    bottom: 0;
+    right: 200px;
+}
+.topFix>a{
+    display: block;
+    width: 40px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+.topFix>a:hover {
+    color: #fff;
+}
+.topFix>a:focus {
+    color: #fff;
+}
+.topFix>a:first-child {
+    background-color: #1a1a1a;
+}
+.topFix>a:last-child {
+    background-color: #c9a063;
+    padding: 3px;
+    font-family: Times New Roman;
+    line-height: 16px;
+}
+

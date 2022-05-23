@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./css/cart.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3165032_pp5i9n6z3l.css">
+</head>
+<body>
+    <div class="header">
+        <h1>
+            <a href="./index.html">TRENDIANO</a>
+        </h1>
+        <div class="top-link">
+            <ul class="clearfix">
+                <li><a href="./login.html">登录</a></li>
+                <li><a href="./register.html">注册</a></li>
+                <li><a href="#">我的账户</a></li>
+                <li><a href="#">我的收藏</a></li>
+                <li><a href="#">购物袋[0]</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="cart-main">
+        <div class="container">
+            <div class="cart-inner">
+                <h3>购物袋</h3>
+                <div class="cart-tip">
+                    优惠：单笔消费，满699元免邮
+                </div>
+                <div class="content">
+                    <!-- <p class="">
+                        <span></span>
+                        购物袋还是空的哦，
+                        <a href="./index.html">快去挑选心仪的衣服吧~</a>
+                    </p> -->
+                    <table class="cart-goods">
+                        <thead><tr><th class="data_1"></th><th class="data_2"></th><th class="data_3">商品名称</th><th class="data_4">颜色/尺码</th><th class="data_5">单价</th><th class="data_5">数量</th><th class="data_5">小计</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="page">1</p>
+            <div class="pay">
+                <div class="choose">
+                    <input class="allItem" type="checkbox">全选
+                    <a class="del_checked" href="#">删除已选</a>
+                </div>
+                <div class="pay-sum">
+                    <p>已选：<span class="totalCount">0</span>件<br>总计金额（不含运费）：￥<span class="totalPrice">0.00</span></p>
+                    <button>马上结算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="copyright">
+            <a href="#">隐私申明</a>
+            <a href="#">联系我们</a>
+            <div class="copyright-link">
+                Copyright @ 2010-2022 广州赫基信息科技有限公司版权所有 增值电信业务经营许可证
+                <a href="#">粤B2-20100553 粤ICP备10229258-4号</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var tbody = document.querySelector('tbody')
+        var arrCart = [
+            {
+                id: 0,
+                isChecked: false,
+                img: './image/3RC3102400410_s_1.jpg',
+                name: '[促销]<a href="">Trendiano金卡银卡会员折扣</a>TRENDIANO <br>货号：3WC2022160000',
+                style: '黄色/S',
+                price: 399,
+                total: 399
+            },
+            {
+                id: 1,
+                isChecked: false,
+                img: './image/3RC3102400410_s_2.jpg',
+                name: '[促销]<a href="">Trendiano金卡银卡会员折扣</a>TRENDIANO <br>货号：3WC2022160001',
+                style: '黄色/S',
+                price: 299,
+                total: 299
+            },
+            {
+                id: 2,
+                isChecked: false,
+                img: './image/3RC3102400410_s_3.jpg',
+                name: '[促销]<a href="">Trendiano金卡银卡会员折扣</a>TRENDIANO <br>货号：3WC2022160002',
+                style: '黄色/S',
+                price: 260,
+                total: 260
+            },
+            {
+                id: 3,
+                isChecked: false,
+                img: './image/3RC3102400410_s_4.jpg',
+                name: '[促销]<a href="">Trendiano金卡银卡会员折扣</a>TRENDIANO <br>货号：3WC2022160002',
+                style: '黄色/S',
+                price: 520,
+                total: 520
+            },
+            {
+                id: 4,
+                isChecked: false,
+                img: './image/3RC3102400410_s_5.jpg',
+                name: '[促销]<a href="">Trendiano金卡银卡会员折扣</a>TRENDIANO <br>货号：3WC2022160002',
+                style: '黄色/S',
+                price: 300,
+                total: 300
+            }
+        ]
+        //初始化
+        function init(arr) {
+            if (document.querySelector('tbody').hasChildNodes()) {
+                var totalItem = document.querySelectorAll('tbody tr')
+                for (var i = 0; i < totalItem.length; i++) {
+                    totalItem[i].remove()
+                }
+            }
+            arr.forEach(function (ele, i) {
+                var tr = document.createElement('tr')
+                tr.setAttribute('data-id', ele.id)
+                var item = `<td><input class = 'check' type="checkbox"></td><td><a href="#"><img src="${ele.img}" alt=""></a></td><td><div class="infor align_left">${ele.name}</div></td><td><div class="size"><a href="#">${ele.style}</a></div></td><td><span class = 'price'>￥${ele.price}.00</span></td><td><div class="count"><span class="plus"></span><input class="count_edit" type="text" value="1"><span class="cut"></span></div><a href="#">收藏</a> / <a class = 'delItem' href="#">删除</a></td><td><span class = 'total'>￥${ele.total}.00</span></td>`
+                tr.innerHTML = item
+                tbody.append(tr)
+            })
+        }
+        init(arrCart)
+        var countEdit = document.querySelectorAll('.count_edit')
+        var plus = document.querySelectorAll('.plus')
+        var cut = document.querySelectorAll('.cut')
+        var total = document.querySelectorAll('.total') //单项总价
+        var price = document.querySelectorAll('.price') //单项的单价
+        var checks = document.querySelectorAll('tbody .check') //单项选择框
+        var delItem = document.querySelectorAll('tbody .delItem') //单项删除
+        var allItem = document.querySelector('.allItem') // 全选框
+        var totalCount = document.querySelector('.totalCount') //总数
+        var totalPrice = document.querySelector('.totalPrice') //总价
+        var del_checked = document.querySelector('.del_checked') //删除已选
+        function debounce(fun, j, name) {
+            var stop = 0
+            return function (event) {
+                if (name === 'plus') {
+                    countEdit[j].value++
+                } else {
+                    if (countEdit[j].value > 1) countEdit[j].value--
+                }
+                var that = this
+                if (stop) clearTimeout(stop)
+                stop = setTimeout(function () {
+                    fun.call(that, event)
+                }, 1000)
+            }
+        }
+        //对checkbox被选中的求和
+        function add() {
+            var sum = 0
+            var flag = true
+            for (var i = 0; i < arrCart.length; i++) {
+                if (arrCart[i].isChecked) {
+                    sum += arrCart[i].total
+                } else {
+                    allItem.checked = false
+                    flag = false
+                }
+            }
+            //所有单个项的checkbox选中，全选框才被选中
+            if (flag) allItem.checked = true
+            return sum + '.00'
+        }
+        //选中的item的总数
+        function sum() {
+            var count = 0
+            for (var i = 0; i < arrCart.length; i++) {
+                if (arrCart[i].isChecked) count += arrCart[i].total / arrCart[i].price
+            }
+            return count
+        }
+        for (var i = 0; i < arrCart.length; i++) {
+            (function (j) {
+                //添加单项
+                plus[j].onclick = debounce(function (e) {
+                    var ind = arrCart.findIndex(function (ele) {
+                        return ele.id === j
+                    })
+                    var currentSum = countEdit[j].value * arrCart[ind].price
+                    total[j].innerText = '￥' + currentSum + '.00'
+                    arrCart[ind].total = currentSum
+                    totalCount.innerText = sum()
+                    totalPrice.innerText = add()
+                }, j, plus[j].className)
+                //减少单项
+                cut[j].onclick = debounce(function () {
+                    var ind = arrCart.findIndex(function (ele) {
+                        return ele.id === j
+                    })
+                    var currentSum = countEdit[j].value * arrCart[ind].price
+                    total[j].innerText = '￥' + currentSum + '.00'
+                    arrCart[ind].total = currentSum
+                    totalCount.innerText = sum()
+                    totalPrice.innerText = add()
+                }, j, cut[j].className)
+                //选中单项
+                checks[j].addEventListener('click', function () {
+                    var ind = arrCart.findIndex(function (ele) {
+                        return ele.id === j
+                    })
+                    if (this.checked) {
+                        arrCart[ind].isChecked = true
+                    } else {
+                        arrCart[ind].isChecked = false
+                    }
+                    totalPrice.innerText = add()
+                    totalCount.innerText = sum()
+                })
+            })(i)
+        }
+        //删除单项
+        tbody.onclick = function (e) {
+            var tag = e.target
+            if (tag.className === 'delItem') {
+                var tagId = tag.parentNode.parentNode.getAttribute('data-id')
+                var res = arrCart.filter(function (ele) {
+                    return tagId != ele.id
+                })
+                arrCart = res
+                tag.parentNode.parentNode.remove()
+                totalPrice.innerText = add()
+                totalCount.innerText = sum()
+            }
+        }
+        //全选框
+        allItem.onclick = function () {
+            if (this.checked) {
+                for (var i = 0; i < arrCart.length; i++) {
+                    var ind = arrCart[i].id
+                    var currentSum = countEdit[ind].value * arrCart[i].price
+                    arrCart[i].total = currentSum
+                    checks[ind].checked = true
+                    arrCart[i].isChecked = true
+                }
+                totalCount.innerText = sum()
+                totalPrice.innerText = add()
+            } else {
+                for (var i = 0; i < arrCart.length; i++) {
+                    var ind = arrCart[i].id
+                    // arrCart[i].total = arrCart[i].price
+                    checks[ind].checked = false
+                    arrCart[i].isChecked = false
+                }
+                totalCount.innerText = 0
+                totalPrice.innerText = '0.00'
+            }
+        }
+        //删除已选
+        del_checked.onclick = function (event) {
+            event.preventDefault()
+            var trAll = document.querySelectorAll('tbody tr')
+            for (var i = 0; i < trAll.length; i++) {
+                if (trAll[i].querySelector('.check').checked) {
+                    trAll[i].remove()
+                    var ind = trAll[i].getAttribute('data-id') * 1
+                    var res = arrCart.filter(function (ele) {
+                        return ele.id !== ind
+                    })
+                    arrCart = res
+                }
+            }
+            totalCount.innerText = sum()
+            totalPrice.innerText = add()
+        }
+    </script>
+</body>
+</html>

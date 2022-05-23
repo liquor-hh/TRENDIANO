@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="back">
+        <a href="#"></a>
+        <div class="dialog_wrap">
+            <h3>欢迎回来！请登录</h3>
+            <div class="phone">
+                <input type="text" placeholder="手机号码">
+            </div>
+            <div class="code">
+                <input type="text" placeholder="验证码">
+                <img src="./image/kaptcha.jpg" alt="">
+            </div>
+            <div class="dynamic">
+                <input type="text" placeholder="手机动态码">
+                <button class="moveCode">获取动态码</button>
+            </div>
+            <div class="error">
+                <span class="error_1">手机号码格式不正确<br>请填写正确的验证码</span>
+                <span class="error_2">请输入正确的验证码</span>
+            </div>
+            <button class="login">登录</button>
+            <div class="register">
+                <a href="#">我要注册</a>
+                <a href="#">忘记密码</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        //点击登录，手机号和验证码和手机动态码同时满足才验证成功
+        //手机号通过，验证码没通过，点击登录提示‘请输入正确的验证码’，点击获取动态码提示对话框
+        var login = document.querySelector('.login')
+        var dialog = document.querySelector('.dialog_wrap')
+        var error_1 = document.querySelector('.error_1')
+        var error_2 = document.querySelector('.error_2')
+        //手机号正则
+        var phoneReg = /^1(4[^23]|5[^4]|6[^14]|9[^4])\d{8}$/
+        login.onclick = function (e) {
+            e.preventDefault()
+            var phoneNumber = document.querySelector('.phone input').value
+            var code = document.querySelector('.code input').value
+            var dynamic = document.querySelector('.dynamic input').value
+            if (phoneReg.test(phoneNumber) && code === '0592' && dynamic === '1234') {
+                alert('验证通过！')
+                error_1.style.display = 'none'
+                error_2.style.display = 'none'
+            } else if (!phoneReg.test(phoneNumber)) {
+                error_1.style.display = 'inline'
+                error_2.style.display = 'none'
+            } else {
+                error_2.style.display = 'inline'
+                error_1.style.display = 'none'
+            }
+        }
+    </script>
+</body>
+
+</html>
